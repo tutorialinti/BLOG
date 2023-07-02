@@ -1,0 +1,80 @@
+<header>
+  <nav class="primary">
+    <ul>
+      <li><a href="/" class="logomark" target="_self">
+        {% include svg/logomark.svg %}
+      </a></li>
+
+      <li><a href="{{ site.baseurl }}/About" target="_self">About</a></li>
+      <li><a href="{{ site.baseurl }}/Contack" target="_self">Contack</a><</li>
+      <li><a href="{{ site.baseurl }}/Privasi-Police" target="_self">Privasi Police</a></li>
+      <li><a href="{{ site.baseurl }}/feed.xml" target="_self">Sitemap</a></li>
+      <li><a href="{{ site.baseurl }}/">Blog</a></li>
+    </ul>
+
+    <ul>
+      <li><a href="{{ site.baseurl }}/feed.xml" title="RSS Feed">
+        {% include svg/rss-square.svg %}
+      </a></li>
+
+      <li><a href="https://youtube.com/" target="_blank" rel="noopener" title="Youtube">
+        {% include svg/youtube.svg %}
+      </a></li>
+
+      <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" title="Facebook">
+        {% include svg/facebook.svg %}
+      </a></li>
+
+      <li><a href="https://mastodon.social/" target="_blank" rel="noopener" title="Mastodon">
+        {% include svg/mastodon.svg %}
+      </a></li>
+
+      <li><a href="https://www.reddit.com/" target="_blank" rel="noopener" title="Reddit">
+        {% include svg/reddit.svg %}
+      </a></li>
+
+      <li><a href="https://twitter.com/" target="_blank" rel="noopener" title="Twitter">
+        {% include svg/twitter.svg %}
+      </a></li>
+
+      <li><a href="https://join.slack.com/" target="_blank" rel="noopener" title="Slack">
+        {% include svg/slack.svg %}
+      </a></li>
+    </ul>
+  </nav>
+  <nav class="secondary">
+    <div>
+      <a href="{{ site.baseurl }}/tags/#Blog">Blogging</a>
+      <a href="{{ site.baseurl }}/tags/#Hosting">Hosting</a>
+      <a href="{{ site.baseurl }}/tags/#Domain">Domain</a>
+      <a href="{{ site.baseurl }}/tags/#devs">Developers</a>
+      <a href="{{ site.baseurl }}/tags/#design">Design</a>
+    </div>
+
+    <div id="search-container" class="hidden">
+      {% include svg/edit-find-symbolic.svg %}
+      <input type="text" id="search-input" placeholder="Search Posts…">
+      <ul id="results-container"></ul>
+    </div>
+
+    <script src="/scripts/search.js"></script>
+
+    <script>
+      document.getElementById('search-container').classList.remove("hidden")
+
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        searchResultTemplate: `<li>
+          <a href="{url}">
+            <div class="featured-image" alt="Featured image" style="background-image: url({image});"></div>
+            <span id="title">{title}</span>
+            <span id="description">{description}</span>
+          </a>
+        </li>`,
+        resultsContainer: document.getElementById('results-container'),
+        noResultsText: ("No Result Found"),
+        json: '/search.json'
+      })
+    </script>
+  </nav>
+</header>
